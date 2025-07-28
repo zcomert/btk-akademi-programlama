@@ -24,8 +24,12 @@
         nav {
             display: flex;
             justify-content: center;
-            background: #e3eafc;
-            border-bottom: 1px solid #c3d0e8;
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         .tab {
             padding: 1rem 2rem;
@@ -33,14 +37,18 @@
             border: none;
             background: none;
             font-size: 1.1rem;
-            color: #1a73e8;
-            transition: background 0.2s;
+            color: #5f6368;
+            transition: color 0.3s, border-bottom-color 0.3s;
             outline: none;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -1px;
         }
         .tab.active, .tab:hover {
-            background: #d2e3fc;
-            color: #174ea6;
-            font-weight: bold;
+            color: #1a73e8;
+        }
+        .tab.active {
+            font-weight: 600;
+            border-bottom-color: #1a73e8;
         }
         main {
             max-width: 900px;
@@ -102,9 +110,117 @@
             display: inline-block;
             margin-bottom: 0.5em;
         }
+        footer {
+            background: #1a73e8;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .github-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+        .github-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            vertical-align: middle;
+        }
         @media (max-width: 600px) {
             main { padding: 1rem; }
             .tab { padding: 0.7rem 1rem; font-size: 1rem; }
+            footer { padding: 1.5rem 1rem; }
+            .github-link { font-size: 1rem; padding: 0.7rem 1.2rem; }
+        }
+        /* Slider */
+        .slider-container {
+            max-width: 900px;
+            margin: 1rem auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+        .slide-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .slider-container .prev, .slider-container .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.3);
+            border: none;
+        }
+        .slider-container .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .slider-container .prev:hover, .slider-container .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .dots-container {
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .dot {
+            cursor: pointer;
+            height: 13px;
+            width: 13px;
+            margin: 0 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .dot.active, .dot:hover {
+            background-color: white;
         }
     </style>
 </head>
@@ -187,6 +303,14 @@
             </ul>
         </section>
     </main>
+    <footer>
+        <a class="github-link" href="https://github.com/zcomert/btk-akademi-programlama" target="_blank" rel="noopener">
+            <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 0.297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387 0.6 0.113 0.82-0.258 0.82-0.577 0-0.285-0.011-1.04-0.017-2.04-3.338 0.726-4.042-1.61-4.042-1.61-0.546-1.387-1.333-1.756-1.333-1.756-1.089-0.745 0.083-0.729 0.083-0.729 1.205 0.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495 0.997 0.108-0.775 0.418-1.305 0.762-1.605-2.665-0.304-5.466-1.332-5.466-5.931 0-1.31 0.469-2.381 1.236-3.221-0.124-0.303-0.535-1.523 0.117-3.176 0 0 1.008-0.322 3.301 1.23 0.957-0.266 1.984-0.399 3.003-0.404 1.018 0.005 2.046 0.138 3.006 0.404 2.291-1.553 3.297-1.23 3.297-1.23 0.653 1.653 0.242 2.873 0.119 3.176 0.77 0.84 1.235 1.911 1.235 3.221 0 4.609-2.804 5.625-5.475 5.921 0.43 0.371 0.823 1.102 0.823 2.222 0 1.606-0.015 2.898-0.015 3.293 0 0.322 0.216 0.694 0.825 0.576 4.765-1.589 8.2-6.085 8.2-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub Repo
+        </a>
+    </footer>
     <script>
         // Tab switching
         document.querySelectorAll('.tab').forEach(tab => {
@@ -426,3 +550,4 @@
     </script>
 </body>
 </html>
+
