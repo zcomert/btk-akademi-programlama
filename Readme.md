@@ -216,4 +216,5 @@ Kariyeri boyunca çok sayıda uluslararası indeksli bilimsel yayın üretmiş, 
 🔗 [Akademik Profil (Samsun Üniversitesi)](https://profil.samsun.edu.tr/Academic/About/zcomert)  
 🔗 [BTK Akademi Eğitmen Profili](https://www.btkakademi.gov.tr/portal/trainer/2250)  
 🔗 [YouTube Kanalı](https://www.youtube.com/@virtual.campus)
+🔗 [Eğitim Web Sayfası](https://zcomert.github.io/btk-akademi-programlama/)
  
