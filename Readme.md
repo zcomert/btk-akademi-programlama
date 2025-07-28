@@ -215,6 +215,6 @@ Kariyeri boyunca çok sayıda uluslararası indeksli bilimsel yayın üretmiş, 
 🔗 [LinkedIn](https://www.linkedin.com/in/zafer-c%C3%B6mert-51000367/)  
 🔗 [Akademik Profil (Samsun Üniversitesi)](https://profil.samsun.edu.tr/Academic/About/zcomert)  
 🔗 [BTK Akademi Eğitmen Profili](https://www.btkakademi.gov.tr/portal/trainer/2250)  
-🔗 [YouTube Kanalı](https://www.youtube.com/@virtual.campus)
+🔗 [YouTube Kanalı](https://www.youtube.com/@virtual.campus)   
 🔗 [Eğitim Web Sayfası](https://zcomert.github.io/btk-akademi-programlama/)
  
